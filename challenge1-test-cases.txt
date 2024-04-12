@@ -1,0 +1,78 @@
+#Test Case 1
+Title: Test that the Brand Admin can update a Product Name of their brand’s Product List
+Description: Ensure that Brand admin has admin privileges in the context of their own Brand
+
+Test Steps:
+Navigate to https://onskeskyen.dk/ 
+Click the Log In button
+Enter the email: <Email> and password: <Password> for the Brand Admin: <Brand Admin> and log in
+Navigate to 1 product: <Product> of their own brand’s Product List: <Product List>
+Click the Edit button 
+Change the product name to New Name and click save
+
+Expected Result: The new name is saved and displayed on the product, and the user should receive confirmation.
+
+Test Data: Email: imerco.ad@email.com, Password: 123, Brand Admin: Imerco Admin, Product: Hvid Riflet Kande, Product List: Imerco Product List
+
+#Test Case 2
+Title: Test that the Brand Admin can not update a Product Name of other brand’s Product List
+Description: Ensure that Brand admin has no privileges in the context of other Brands
+
+Preconditions: The user is already logged in as Brand Admin: <Brand Admin>
+
+Test Steps:
+Navigate to 1 product: <Product> of another brand’s Product List:<Product List>
+Click the Edit button 
+
+Expected Result: The Edit button does not exist. 
+
+Test Data: Brand Admin: Imerco Admin, Product: MIss Dior Eau de Parfum, Product List: Matas Product List
+
+#Test Case 3
+Title: Test that the Admin can create a Brand
+Description: Ensure that the Admin can manage Brands
+
+Preconditions: The user is already logged in as Admin: <Admin>
+
+Test Steps:
+Navigate to all brands
+Click the Add Brand button
+Enter brand’s name: <Brand Name>
+Click Save
+
+Expected Result: The user is redirected to the new brand’s page, where the brand’s name: <Brand Name> is displayed, and the user should receive confirmation.
+
+Test Data: Admin: Admin 1, Brand Name: Nike
+
+#Test Case 4
+Title: Test that the Admin can grant Brand Admin permissions to a user
+Description: Ensure that the Admin can manage User Accounts 
+
+Preconditions:The user is already logged in as Admin: <Admin>, and there is a User account with no initial permissions: <User>
+
+Test Steps:
+Navigate to the Admin Pannel
+Click on Users Permissions
+Click on the Search bar
+Search for user: <User>
+Click Edit Permissions
+Choose Role: Brand Administrator
+Click Save
+
+Expected Result: The user’s permissions are updated, and there is a “Brand Administrator” badge next to the user name, and the user should receive confirmation.
+
+Test Data: Admin: Admin 1, User: Test User
+
+#Test Case 5
+Title: Test that an ordinary user can not update a Product Name of a brand’s Product List
+Description: Ensure that a user with no Brand privilates can not manage brands Product Lists
+
+Preconditions: The user is already logged in as User: <User>
+
+Test Steps:
+Navigate to 1 product: <Product> of a brand’s Product List: <Product List>
+Click the Edit button 
+
+Expected Result: The Edit button does not exist. 
+
+Test Data: User: Test User, Product: Miss Dior Eau de Parfum, Product List: MatasProduct List
